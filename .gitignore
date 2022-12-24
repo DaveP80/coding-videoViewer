@@ -9,8 +9,8 @@ package-lock.json
 README.md
 public/robots.txt
 public/manifest.json
-src/components/reportWebVitals.js
-src/components/setupTests.js
+src/reportWebVitals.js
+src/setupTests.js
 
 # testing
 /coverage
