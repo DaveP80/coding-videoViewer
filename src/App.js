@@ -12,22 +12,29 @@ class App extends React.Component {
     );
   }
 
-  onTermSubmit = async (term) => {
+  onTermSubmit = (term) => {
     function YouTubeGetID(url){
       url = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
       return (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
    }
-   const myarr = []
-   var youtube = await fetch(`https://fastapi-youtube.uk.r.appspot.com/${term}`, { mode: 'cors'}); 
-    youtube.json().then(e => e["urls"].forEach(item => {let obj = {}
-        obj.id = YouTubeGetID(item[0])
-        obj.title = item[1]
-        myarr.push(obj)}))
-        
-        this.setState({
-          videos: myarr,
-          selectedVideo: myarr[0],
-        })
+   const setarrobj = async(term) => {
+    var youtube = await fetch(`https://fastapi-youtube.uk.r.appspot.com/${term}`, { mode: 'cors'});
+     youtube.json().then(e => {
+      let stage = []
+      e['urls'].forEach(item => {
+      let obj = {}
+      obj.id = YouTubeGetID(item[0])
+      obj.title = item[1]
+      stage.push(obj)
+      })
+      this.setState({
+      videos: stage.splice(0,5),
+      selectedVideo: stage.splice(0,stage.length)[0],
+    })})}
+
+    setarrobj(term)
+
+  
       }
 
   onVideoSelect = (video) => {
