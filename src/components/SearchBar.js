@@ -20,9 +20,11 @@ class SearchBar extends React.Component {
       <div className="search-bar">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
+            <div className='field-title'>
             <label>
               <h1>Most recent coding videos</h1>
             </label>
+            </div>
             <div className='wmrk'>
                 <h4>Davep80</h4>
                 </div>

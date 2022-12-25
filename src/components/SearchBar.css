@@ -4,6 +4,13 @@ h1 {
 
   .search-bar {
     background-color: #acb7ce;
+    position: relative;
+    top: 5px;
+  }
+
+  .field-title {
+    position: relative;
+    top: 5px;
   }
 
   .wmrk {
