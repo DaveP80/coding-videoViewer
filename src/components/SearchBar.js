@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
             </label>
             </div>
             <div className='icon'>
-                <img src={ic} alt='ic'></img>
+                <img src={ic.toString()} alt='ic'></img>
                     </div>
             <div className="onhovertip">query must include a programming language!</div>
             <div className='wmrk'>
