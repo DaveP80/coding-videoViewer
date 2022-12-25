@@ -23,3 +23,19 @@ h1 {
   .ui.button {
     margin: 10px 0;
   }
+  
+  .icon {
+    position: relative;
+    top: -5;
+    left: 540px;
+  }
+
+  .onhovertip {
+    display: none;
+    position: relative;
+    left: 420px;
+  }
+
+  .icon:hover + .onhovertip {
+    display: block;
+  }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
+let ic= require('./info.png');
 
 class SearchBar extends React.Component {
   state = { term: '' };
@@ -25,6 +26,10 @@ class SearchBar extends React.Component {
               <h1>Most recent coding videos</h1>
             </label>
             </div>
+            <div className='icon'>
+                <img src={ic} alt='ic'></img>
+                    </div>
+            <div className="onhovertip">query must include a programming language!</div>
             <div className='wmrk'>
                 <h4>Davep80</h4>
                 </div>
