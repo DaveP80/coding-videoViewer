@@ -10,7 +10,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
         alt={video.title}
       />
       <div className="content">
-        <div className="header">{video.title}</div>
+        <div className="header">{video.title.replaceAll('\\u0026', '&')}</div>
       </div>
     </div>
   );

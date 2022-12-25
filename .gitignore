@@ -6,11 +6,16 @@
 .pnp.js
 build-rreact-demo.code-workspace
 package-lock.json
-README.md
 public/robots.txt
 public/manifest.json
 src/reportWebVitals.js
 src/setupTests.js
+/build
+/.firebase
+.firebaserc
+firebase.json
+*.gitignore
+
 
 # testing
 /coverage

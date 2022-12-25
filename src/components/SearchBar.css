@@ -1,7 +1,18 @@
 h1 {
     text-align: center;
   }
-  
+
+  .search-bar {
+    background-color: #acb7ce;
+  }
+
+  .wmrk {
+    position: relative;
+    top: -10px;
+    left: 5px;
+    color:#7b8293;
+  }
+
   .ui.button {
     margin: 10px 0;
   }

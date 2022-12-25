@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
+import './App.css';
 
 class App extends React.Component {
   state = { videos: [], selectedVideo: null }; 
@@ -18,23 +19,28 @@ class App extends React.Component {
       return (url[2] !== undefined) ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0];
    }
    const setarrobj = async(term) => {
+    let regex = /javascript|python|java|react|c\+\+|typescript/gm
+    if (!term.match(regex)) {
+      let res = term.substring(0,term.length/2)
+      alert (`invalid query! ${res}`)
+      return;
+    }
     var youtube = await fetch(`https://fastapi-youtube.uk.r.appspot.com/${term}`, { mode: 'cors'});
      youtube.json().then(e => {
       let stage = []
+      if (e['urls']!=='no matching results'){
       e['urls'].forEach(item => {
-      let obj = {}
-      obj.id = YouTubeGetID(item[0])
-      obj.title = item[1]
-      stage.push(obj)
-      })
+      stage.push({id: YouTubeGetID(item[0]), title: item[1]})
+      })}
+      else{
+      alert `no video results!`
+      return}
       this.setState({
-      videos: stage.splice(0,5),
-      selectedVideo: stage.splice(0,stage.length)[0],
+      videos: stage,
+      selectedVideo: stage.length<5 ? stage[0] : stage.shift(),
     })})}
 
-    setarrobj(term)
-
-  
+    setarrobj(term.toLowerCase().trim().replaceAll("  ", ' '))
       }
 
   onVideoSelect = (video) => {

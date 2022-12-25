@@ -6,25 +6,30 @@ class SearchBar extends React.Component {
 
   onInputChange = (event) => {
     this.setState({ term: event.target.value });
+    
   };
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
     this.props.onFormSubmit(this.state.term);
+    
   };
-
+  
   render() {
     return (
-      <div className="search-bar ui segment">
+      <div className="search-bar">
         <form onSubmit={this.onFormSubmit} className="ui form">
-          <div className="field ">
+          <div className="field">
             <label>
-              <h1>Search Videos</h1>
+              <h1>Most recent coding videos</h1>
             </label>
+            <div className='wmrk'>
+                <h4>Davep80</h4>
+                </div>
             <input
               type="text"
-              vaue={this.state.term}
+              placeholder='javascript|python|java|react|c++|typescript'
+              value={this.state.term}
               onChange={this.onInputChange}
             />
             <button className="fluid ui red button mt">Search</button>
