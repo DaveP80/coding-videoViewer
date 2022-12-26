@@ -35,6 +35,7 @@ class App extends React.Component {
       else{
       alert `no video results!`
       return}
+      document.title= term
       this.setState({
       videos: stage,
       selectedVideo: stage.length<5 ? stage[0] : stage.shift(),
@@ -45,6 +46,7 @@ class App extends React.Component {
 
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video });
+    document.title = this.state.selectedVideo.title.substring(0,11) + ".."
   };
 
   render() {
